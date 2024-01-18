@@ -15,6 +15,8 @@ height_label.pack()
 
 height_entry=Entry(width=30)
 height_entry.pack()
+calculate_label=Label(text="____________________",font=44)
+calculate_label.pack()
 def button_clicked():
     body_mass=""
     try:
@@ -23,7 +25,7 @@ def button_clicked():
         he=(he/100)**2
         calculate=we/he
     except:
-        calculate_label=Label(text="Please text a number.",font=44)
+        calculate_label.config(text="Please text a number.",font=44)
         calculate_label.pack()
         return
     if calculate<18.5:
@@ -36,7 +38,7 @@ def button_clicked():
         body_mass="obese"
     elif 40<=calculate:
         body_mass="morbidly obese"
-    calculate_label=Label(text="Your BMI ={} You are {}".format(calculate,body_mass),font=44)
+    calculate_label.config(text="Your BMI ={} You are {}".format(calculate,body_mass),font=44)
     calculate_label.pack()
 button=Button(text="CALCULATE",command=button_clicked,font=44)
 button.pack()
